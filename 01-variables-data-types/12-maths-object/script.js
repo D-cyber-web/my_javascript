@@ -1,60 +1,33 @@
 let x;
 
-const name = 'John';
-const age = 31;
+// Square root
+x = Math.sqrt(9);
 
-// Concatenation
-x = 'Hello, my name is ' + name + ' and I am ' + age + ' years old';
+// Absolute value
+x = Math.abs(-5);
 
-// Template Literals
-x = `Hello, my name is ${name} and I am ${age} years old`;
+// Round
+x = Math.round(4.2);
 
-// String Properties and Methods
+// Round up
+x = Math.ceil(4.2);
 
-// Creating a "string object" (JS does this automatically when using a propery or method on a primitive string)
-const s = new String('Hello World');
+// Round down
+x = Math.floor(4.9);
 
-x = typeof s;
+// Exponent
+x = Math.pow(2, 3);
 
-x = s.length;
+// Minimum number
+x = Math.min(4, 5, 3);
 
-// Access value by key
-x = s[0];
+// Maximum number
+x = Math.max(4, 5, 3);
 
-// Shows the prototype of the string object. Shows the properties and methods
-x = s.__proto__;
+// Get a random number/decimal between 0 and 1
+x = Math.random();
 
-// Change case
-x = s.toUpperCase();
-x = s.toLowerCase();
-
-// charAt() - returns the character at the specified index
-x = s.charAt(0);
-
-// indexOf - returns the index of the first occurrence of a specified value in a string
-x = s.indexOf('d');
-
-// substring() - search a string for a specified value
-x = s.substring(2, 5);
-x = s.substring(7);
-
-// slice() - extracts a part of a string and returns a new string
-x = s.slice(-11, -6);
-
-// trim() - remove whitespace from beginning and end of string
-x = '         Hello World';
-x = x.trim();
-
-// replace() - replace all instances of a string
-x = s.replace('World', 'John');
-
-// includes() - returns true if the string is found
-x = s.includes('Hell');
-
-// valueOf() - returns the primitive value of a variable
-x = s.valueOf();
-
-// split() - returns an array of strings
-x = s.split('');
+// Get a random number between 1 and 100
+x = Math.floor(Math.random() * 100 + 1);
 
 console.log(x);
