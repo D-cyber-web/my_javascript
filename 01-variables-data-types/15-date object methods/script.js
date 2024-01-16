@@ -1,60 +1,50 @@
 let x;
+let d = new Date();
 
-const name = 'John';
-const age = 31;
+// Date methods
 
-// Concatenation
-x = 'Hello, my name is ' + name + ' and I am ' + age + ' years old';
+x = d.toString();
 
-// Template Literals
-x = `Hello, my name is ${name} and I am ${age} years old`;
+x = d.getTime();
+x = d.valueOf();
 
-// String Properties and Methods
+x = d.getFullYear();
 
-// Creating a "string object" (JS does this automatically when using a propery or method on a primitive string)
-const s = new String('Hello World');
+x = d.getMonth();
+x = d.getMonth() + 1;
 
-x = typeof s;
+x = d.getDate();
 
-x = s.length;
+x = d.getDay();
 
-// Access value by key
-x = s[0];
+x = d.getHours();
 
-// Shows the prototype of the string object. Shows the properties and methods
-x = s.__proto__;
+x = d.getMinutes();
 
-// Change case
-x = s.toUpperCase();
-x = s.toLowerCase();
+x = d.getSeconds();
 
-// charAt() - returns the character at the specified index
-x = s.charAt(0);
+x = d.getMilliseconds();
 
-// indexOf - returns the index of the first occurrence of a specified value in a string
-x = s.indexOf('d');
+x = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
 
-// substring() - search a string for a specified value
-x = s.substring(2, 5);
-x = s.substring(7);
+// Intl.DateTimeFormat API (locale specific)
+x = Intl.DateTimeFormat('en-US').format(d);
+x = Intl.DateTimeFormat('en-GB').format(d);
+x = Intl.DateTimeFormat('default').format(d);
 
-// slice() - extracts a part of a string and returns a new string
-x = s.slice(-11, -6);
+x = Intl.DateTimeFormat('default', { month: 'long' }).format(d);
 
-// trim() - remove whitespace from beginning and end of string
-x = '         Hello World';
-x = x.trim();
+x = d.toLocaleString('default', { month: 'short' });
 
-// replace() - replace all instances of a string
-x = s.replace('World', 'John');
-
-// includes() - returns true if the string is found
-x = s.includes('Hell');
-
-// valueOf() - returns the primitive value of a variable
-x = s.valueOf();
-
-// split() - returns an array of strings
-x = s.split('');
+x = d.toLocaleString('default', {
+  weekday: 'long',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  hour: 'numeric',
+  minute: 'numeric',
+  second: 'numeric',
+  timeZone: 'America/New_York',
+});
 
 console.log(x);
