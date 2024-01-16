@@ -1,60 +1,35 @@
-let x;
+let d;
 
-const name = 'John';
-const age = 31;
+// Get today's date and time
+d = new Date();
 
-// Concatenation
-x = 'Hello, my name is ' + name + ' and I am ' + age + ' years old';
+// Set to a string
+d = d.toString();
 
-// Template Literals
-x = `Hello, my name is ${name} and I am ${age} years old`;
+// Get a specific date
+// Important: the month is 0-based, so 0 is January and 11 is December
+d = new Date(2021, 0, 10, 12, 30, 0);
 
-// String Properties and Methods
+// Pass in a string
+d = new Date('2021-07-10T12:30:00');
+d = new Date('07/10/2021 12:30:00');
+d = new Date('2022-07-10');
+d = new Date('07-10-2022');
 
-// Creating a "string object" (JS does this automatically when using a propery or method on a primitive string)
-const s = new String('Hello World');
+// https://stackoverflow.com/questions/7556591/is-the-javascript-date-object-always-one-day-off
 
-x = typeof s;
+// Get current timestamp
+d = Date.now();
 
-x = s.length;
+// Get the timestamp of a specific date
+d = new Date();
+d = d.getTime();
+d = d.valueOf();
 
-// Access value by key
-x = s[0];
+// Create a date from a timestamp
+d = new Date(1666962049745);
 
-// Shows the prototype of the string object. Shows the properties and methods
-x = s.__proto__;
+// Convert from milliseconds to seconds
+d = Math.floor(Date.now() / 1000);
 
-// Change case
-x = s.toUpperCase();
-x = s.toLowerCase();
-
-// charAt() - returns the character at the specified index
-x = s.charAt(0);
-
-// indexOf - returns the index of the first occurrence of a specified value in a string
-x = s.indexOf('d');
-
-// substring() - search a string for a specified value
-x = s.substring(2, 5);
-x = s.substring(7);
-
-// slice() - extracts a part of a string and returns a new string
-x = s.slice(-11, -6);
-
-// trim() - remove whitespace from beginning and end of string
-x = '         Hello World';
-x = x.trim();
-
-// replace() - replace all instances of a string
-x = s.replace('World', 'John');
-
-// includes() - returns true if the string is found
-x = s.includes('Hell');
-
-// valueOf() - returns the primitive value of a variable
-x = s.valueOf();
-
-// split() - returns an array of strings
-x = s.split('');
-
-console.log(x);
+console.log(d);
