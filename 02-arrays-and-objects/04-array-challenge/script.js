@@ -1,44 +1,28 @@
-let x;
+// Challenge 1
 
-const fruits = ['apple', 'pear', 'orange'];
-const berries = ['strawberry', 'blueberry', 'rasberry'];
+const arr = [1, 2, 3, 4, 5];
 
-// Nesting arrays
+// arr.reverse();
+// arr.push(0);
+// arr.unshift(6);
 
-// Nesting berries inside of fruits
-fruits.push(berries);
+// Same result as above
+arr.push(6);
+arr.unshift(0);
+arr.reverse();
 
-// Now we can access 'blueberry' with the following
-x = fruits[3][1];
+console.log(arr);
 
-// Create a new variable and nest both arrays
-const allFruits = [fruits, berries];
+// Challenge 2
 
-x = allFruits[1][2];
+const arr1 = [1, 2, 3, 4, 5];
+const arr2 = [5, 6, 7, 8, 9, 10];
 
-// concat() - Concatenate arrays
-x = fruits.concat(berries);
+// Solution 1
+const arr3 = arr1.slice(0, 4).concat(arr2);
 
-// spread operator (...) - Concatenate with
-x = [...fruits, ...berries];
+// Solution 2
+const arr4 = [...arr1, ...arr2];
+arr4.splice(4, 1);
 
-// flat() - Flatten an array
-const arr = [1, 2, [3, 4, 5], 6, [7, 8]];
-x = arr.flat();
-
-// Static methods of Array object
-
-// isArray() - Check is is an array
-x = Array.isArray(fruits);
-
-// from() - Create an array from an array like value
-x = Array.from('12345');
-
-// of() - Create an array from a set of values
-const a = 1;
-const b = 2;
-const c = 3;
-
-x = Array.of(a, b, c);
-
-console.log(x);
+console.log(arr4);
