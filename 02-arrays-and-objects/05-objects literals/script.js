@@ -1,32 +1,47 @@
 let x;
 
-// Array Literal
-const numbers = [12, 45, 33, 29, 39, 102];
-const mixed = [12, 'Hello', true, null];
+// Creating an object
+const person = {
+  name: 'John Doe',
+  age: 30,
+  isAdmin: true,
+  address: {
+    street: '123 Main st',
+    city: 'Boston',
+    state: 'MA',
+  },
+  hobbies: ['music', 'sports'],
+};
 
-// Array Constructor
-const fruits = new Array('apple', 'grape', 'orange');
+// Accessing object properties
+x = person.name; // Dot notation
+x = person['age']; // Bracket notation
+x = person.address.state;
+x = person.hobbies[0];
 
-// Get value by index
-x = numbers[0];
+// Updating properties
+person.name = 'Jane Doe';
+person['isAdmin'] = false;
 
-x = numbers[0] + numbers[3];
+// Deleting properties
+delete person.age;
 
-x = `My favorite fruit is an ${fruits[2]}`;
+// Create new properties
+person.hasChildren = true;
 
-x = numbers.length;
+// Add functions
+person.greet = function () {
+  console.log(`Hello, my name is ${this.name}`);
+};
 
-fruits[2] = 'pear';
+person.greet();
 
-// length is not read-only
-// fruits.length = 2;
+// Keys with multiple words
+const person2 = {
+  'first name': 'Brad',
+  'last name': 'Traversy',
+};
 
-fruits[3] = 'strawberry';
-
-// Using the length as the index will always add on the the end
-fruits[fruits.length] = 'blueberry';
-fruits[fruits.length] = 'peach';
-
-x = fruits;
+x = person2['first name'];
 
 console.log(x);
