@@ -1,45 +1,44 @@
-// document.getElementById()
+// querySelectorAll()
+// Returns a NodeList
 
-console.log(document.getElementById('app-title'));
+const listItems = document.querySelectorAll('.item');
 
-// Get attributes
-console.log(document.getElementById('app-title').id);
-console.log(document.getElementById('app-title').className);
-console.log(document.getElementById('app-title').getAttribute('id'));
+// Access elements by index
+console.log(listItems[1].innerText);
 
-// Set attributes
-document.getElementById('app-title').title = 'Shopping List';
-document.getElementById('app-title').setAttribute('class', 'title');
+// Setting a color for specific element
+listItems[1].style.color = 'red';
 
-const title = document.getElementById('app-title');
+// We can use forEach() on a NodeList
+listItems.forEach((item, index) => {
+  item.style.color = 'red';
 
-// Get/change content
-console.log(title.textContent);
-title.textContent = 'Hello World';
-title.innerText = 'Hello Again';
-title.innerHTML = '<strong>Shopping List</strong>';
+  if (index === 1) {
+    item.remove();
+  }
 
-// Change styles
-title.style.color = 'red';
-title.style.backgroundColor = 'black';
-title.style.padding = '10px';
-title.style.borderRadius = '10px';
+  if (index === 0) {
+    item.innerHTML = ` Oranges
+    <button class="remove-item btn-link text-red">
+      <i class="fa-solid fa-xmark"></i>
+    </button>`;
+  }
+});
 
-// document.querySelector()
+// getElementsByClassName()
+// Returns an HTMLCollection
 
-// Use any CSS selector
-console.log(document.querySelector('h1'));
-console.log(document.querySelector('#app-title'));
-console.log(document.querySelector('.container'));
-console.log(document.querySelector('input[type="text"]'));
-console.log(document.querySelector('li:nth-child(2)').innerText);
+const listItems2 = document.getElementsByClassName('item');
 
-const secondItem = document.querySelector('li:nth-child(2)');
-secondItem.innerText = 'Apple Juice';
-secondItem.style.color = 'red';
+console.log(listItems2[2].innerText);
 
-// Use these methods on other elements
-const list = document.querySelector('ul');
-console.log(list);
-const firstItem = list.querySelector('li');
-firstItem.style.color = 'blue';
+const listItemsArray = Array.from(listItems2);
+
+listItemsArray.forEach((item) => {
+  console.log(item.innerText);
+});
+
+// getElementsByTagName()
+
+const listItems3 = document.getElementsByTagName('li');
+console.log(listItems3[0].innerText);
