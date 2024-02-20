@@ -1,48 +1,35 @@
-// insertAdjacentElement Example
-function insertElement() {
-    const filter = document.querySelector('.filter');
-  
-    const h1 = document.createElement('h1');
-    h1.textContent = 'insertAdjacentElement';
-  
-    filter.insertAdjacentElement('beforebegin', h1);
-  }
-  
-  // insertAdjacentText Example
-  function insertText() {
-    const item = document.querySelector('li:first-child');
-  
-    item.insertAdjacentText('beforebegin', 'insertAdjacentText');
-  }
-  
-  // insertAdjacentHTML example
-  function insertHTML() {
-    const clearBtn = document.querySelector('#clear');
-  
-    clearBtn.insertAdjacentHTML('afterend', '<h2>insertAdjacentHTML</h2>');
-  }
-  
-  // insertBefore Example
-  function insertBeforeItem() {
-    const ul = document.querySelector('ul');
-  
-    const li = document.createElement('li');
-    li.textContent = 'insertBefore';
-  
-    const thirdItem = document.querySelector('li:nth-child(3)');
-  
-    ul.insertBefore(li, thirdItem);
-  }
-  
-  insertElement();
-  
-  /*
-  <!-- beforebegin -->
-  <p>
-    <!-- afterbegin -->
-    foo
-    <!-- beforeend -->
-  </p>
-  <!-- afterend -->
-  */
-  
+const text = document.querySelector('p');
+const itemList = document.querySelector('.item-list');
+const items = itemList.querySelectorAll('li');
+
+function run() {
+  // className - Gets a string of all classes
+  console.log(itemList.className);
+  // Changing the classes with className
+  text.className = 'card dark';
+
+  // classList - Array of classes, which also has methods to add, remove, toggle and replace
+  console.log(itemList.classList);
+
+  // We can loop through the classes
+  itemList.classList.forEach((c) => console.log(c));
+
+  // Add, remove, toggle, replace
+  text.classList.add('dark');
+  text.classList.remove('card');
+  text.classList.toggle('hidden');
+  text.classList.replace('card', 'dark');
+
+  // style property - Add styles to elements
+  itemList.style.lineHeight = '3';
+
+  items.forEach((item, index) => {
+    item.style.color = 'red';
+
+    if (index === 2) {
+      item.style.color = 'blue';
+    }
+  });
+}
+
+document.querySelector('button').onclick = run;
