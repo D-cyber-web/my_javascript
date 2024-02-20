@@ -1,48 +1,42 @@
-// insertAdjacentElement Example
-function insertElement() {
-    const filter = document.querySelector('.filter');
-  
-    const h1 = document.createElement('h1');
-    h1.textContent = 'insertAdjacentElement';
-  
-    filter.insertAdjacentElement('beforebegin', h1);
-  }
-  
-  // insertAdjacentText Example
-  function insertText() {
-    const item = document.querySelector('li:first-child');
-  
-    item.insertAdjacentText('beforebegin', 'insertAdjacentText');
-  }
-  
-  // insertAdjacentHTML example
-  function insertHTML() {
-    const clearBtn = document.querySelector('#clear');
-  
-    clearBtn.insertAdjacentHTML('afterend', '<h2>insertAdjacentHTML</h2>');
-  }
-  
-  // insertBefore Example
-  function insertBeforeItem() {
-    const ul = document.querySelector('ul');
-  
-    const li = document.createElement('li');
-    li.textContent = 'insertBefore';
-  
-    const thirdItem = document.querySelector('li:nth-child(3)');
-  
-    ul.insertBefore(li, thirdItem);
-  }
-  
-  insertElement();
-  
-  /*
-  <!-- beforebegin -->
-  <p>
-    <!-- afterbegin -->
-    foo
-    <!-- beforeend -->
-  </p>
-  <!-- afterend -->
-  */
-  
+// remove() Method
+function removeClearButton() {
+  const clearBtn = document.querySelector('#clear');
+  clearBtn.remove();
+}
+
+// removeChild() Method
+function removeFirstItem() {
+  const ul = document.querySelector('ul');
+  const li = document.querySelector('li:first-child');
+
+  ul.removeChild(li);
+}
+
+// Other examples
+
+function removeItem(itemNumber) {
+  const ul = document.querySelector('ul');
+  const li = document.querySelector(`li:nth-child(${itemNumber})`);
+
+  ul.removeChild(li);
+}
+
+function removeItem2(itemNumber) {
+  const ul = document.querySelector('ul');
+  const li = document.querySelectorAll('li')[itemNumber - 1];
+
+  ul.removeChild(li);
+}
+
+function removeItem3(itemNumber) {
+  const li = document.querySelectorAll('li');
+  li[itemNumber - 1].remove();
+}
+
+const removeItem4 = (itemNumber) =>
+  document.querySelectorAll('li')[itemNumber - 1].remove();
+
+removeClearButton();
+// removeFirstItem();
+// removeItem(2);
+removeItem4(2);
