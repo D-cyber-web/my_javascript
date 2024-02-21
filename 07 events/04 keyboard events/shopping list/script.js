@@ -1,35 +1,46 @@
-const clearBtn = document.querySelector('#clear');
+const itemInput = document.getElementById('item-input');
 
-function onClear() {
-  const itemList = document.querySelector('ul');
-  const items = itemList.querySelectorAll('li');
+const onKeyPress = (e) => {
+  console.log('keypress');
+};
 
-  // itemList.innerHTML = '';
+const onKeyUp = (e) => {
+  console.log('keyup');
+};
 
-  // items.forEach((item) => item.remove());
+const onKeyDown = (e) => {
+  // key
+  // if (e.key === 'Enter') {
+  //   alert('You pressed enter');
+  // }
 
-  while (itemList.firstChild) {
-    itemList.removeChild(itemList.firstChild);
+  // keyCode
+  // https://www.toptal.com/developers/keycode/table-of-all-keycodes
+  if (e.keyCode === 13) {
+    alert('You pressed enter');
   }
-}
 
-// JavaScript Event Listener
-clearBtn.onclick = function () {
-  alert('Clear Items');
+  // code
+  if (e.code === 'Digit1') {
+    console.log('You pressed 1');
+  }
+
+  // repeat
+  if (e.repeat) {
+    console.log('You are holding down ' + e.key);
+  }
+
+  // shiftKey, ctrlKey & altKey
+  console.log('Shift: ' + e.shiftKey);
+  console.log('Control: ' + e.ctrlKey);
+  console.log('Alt: ' + e.altKey);
+
+  if (e.shiftKey && e.key === 'K') {
+    console.log('You hit shift + K');
+  }
 };
 
-clearBtn.onclick = function () {
-  console.log('Clear Items');
-};
-
-// addEventListener()
-clearBtn.addEventListener('click', () => alert('Clear Items'));
-
-// Use named function
-clearBtn.addEventListener('click', onClear);
-
-// removeEventListener()
-setTimeout(() => clearBtn.removeEventListener('click', onClear), 5000);
-
-// Fire off event from JS
-setTimeout(() => clearBtn.click(), 5000);
+// Event Listeners
+itemInput.addEventListener('keypress', onKeyPress);
+itemInput.addEventListener('keyup', onKeyUp);
+itemInput.addEventListener('keydown', onKeyDown);
