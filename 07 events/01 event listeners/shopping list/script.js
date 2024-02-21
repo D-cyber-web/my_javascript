@@ -1,42 +1,35 @@
-// remove() Method
-function removeClearButton() {
-  const clearBtn = document.querySelector('#clear');
-  clearBtn.remove();
+const clearBtn = document.querySelector('#clear');
+
+function onClear() {
+  const itemList = document.querySelector('ul');
+  const items = itemList.querySelectorAll('li');
+
+  // itemList.innerHTML = '';
+
+  // items.forEach((item) => item.remove());
+
+  while (itemList.firstChild) {
+    itemList.removeChild(itemList.firstChild);
+  }
 }
 
-// removeChild() Method
-function removeFirstItem() {
-  const ul = document.querySelector('ul');
-  const li = document.querySelector('li:first-child');
+// JavaScript Event Listener
+clearBtn.onclick = function () {
+  alert('Clear Items');
+};
 
-  ul.removeChild(li);
-}
+clearBtn.onclick = function () {
+  console.log('Clear Items');
+};
 
-// Other examples
+// addEventListener()
+clearBtn.addEventListener('click', () => alert('Clear Items'));
 
-function removeItem(itemNumber) {
-  const ul = document.querySelector('ul');
-  const li = document.querySelector(`li:nth-child(${itemNumber})`);
+// Use named function
+clearBtn.addEventListener('click', onClear);
 
-  ul.removeChild(li);
-}
+// removeEventListener()
+setTimeout(() => clearBtn.removeEventListener('click', onClear), 5000);
 
-function removeItem2(itemNumber) {
-  const ul = document.querySelector('ul');
-  const li = document.querySelectorAll('li')[itemNumber - 1];
-
-  ul.removeChild(li);
-}
-
-function removeItem3(itemNumber) {
-  const li = document.querySelectorAll('li');
-  li[itemNumber - 1].remove();
-}
-
-const removeItem4 = (itemNumber) =>
-  document.querySelectorAll('li')[itemNumber - 1].remove();
-
-removeClearButton();
-// removeFirstItem();
-// removeItem(2);
-removeItem4(2);
+// Fire off event from JS
+setTimeout(() => clearBtn.click(), 5000);
