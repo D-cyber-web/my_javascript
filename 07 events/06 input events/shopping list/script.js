@@ -1,50 +1,32 @@
-const logo = document.querySelector('img');
+const itemInput = document.getElementById('item-input');
+const priorityInput = document.getElementById('priority-input');
+const checkbox = document.getElementById('checkbox');
+const heading = document.querySelector('h1');
 
-function onClick(e) {
-  // Event properties
-  // console.log(e.target);
-  // console.log(e.currentTarget);
-  // console.log(e.type);
-  // console.log(e.timeStamp);
-  // console.log(e.clientX);
-  // console.log(e.clientY);
-  // console.log(e.offsetX);
-  // console.log(e.offsetY);
-  // console.log(e.pageX);
-  // console.log(e.pageY);
-  // console.log(e.screenX);
-  // console.log(e.screenY);
+function onInput(e) {
+  heading.textContent = e.target.value;
 }
 
-function onDrag(e) {
-  document.querySelector('h1').textContent = `X ${e.clientX} Y ${e.clientY}`;
+function onChecked(e) {
+  const isChecked = e.target.checked;
+  heading.textContent = isChecked ? 'Checked' : 'Not Checked';
 }
 
-logo.addEventListener('click', onClick);
-logo.addEventListener('drag', onDrag);
+function onFocus() {
+  console.log('Input is focused');
+  itemInput.style.outlineStyle = 'solid';
+  itemInput.style.outlineWidth = '1px';
+  itemInput.style.outlineColor = 'red';
+}
 
-// document.body.addEventListener('click', function (e) {
-//   console.log(e.target);
-//   console.log(e.currentTarget);
-// });
+function onBlur() {
+  console.log('Input is not focused');
+  itemInput.style.outlineStyle = 'none';
+}
 
-// e.preventDefault() method prevents the default behavior
-document.querySelector('a').addEventListener('click', function (e) {
-  e.preventDefault();
-  console.log('Link was clicked');
-});
-
-/*
-- `target` - The element that triggered the event
-- `currentTarget` - The element that the event listener is attached to (These are the same in this case
-- `type` - The type of event that was triggered
-- `timeStamp` - The time that the event was triggered
-- `clientX` - The x position of the mouse click relative to the window
-- `clientY` - The y position of the mouse click relative to the window
-- `offsetX` - The x position of the mouse click relative to the element
-- `offsetY` - The y position of the mouse click relative to the element
-- `pageX` - The x position of the mouse click relative to the page
-- `pageY` - The y position of the mouse click relative to the page
-- `screenX` - The x position of the mouse click relative to the screen
-- `screenY` - The y position of the mouse click relative to the screen
-*/
+// input, change, focus and blur events
+itemInput.addEventListener('input', onInput);
+priorityInput.addEventListener('change', onInput);
+checkbox.addEventListener('input', onChecked);
+itemInput.addEventListener('focus', onFocus);
+itemInput.addEventListener('blur', onBlur);
