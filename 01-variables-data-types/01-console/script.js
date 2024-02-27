@@ -11,7 +11,7 @@ console.warn('Warning')
 console.table({name: 'david', email: 'example@gamil.com'}) 
 
 console.group('next')
-console.log(x)
+console. log(x)
 console.error('Alert')
 console.warn('Warning')
 console.groupEnd()
