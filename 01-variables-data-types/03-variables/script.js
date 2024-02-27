@@ -1,8 +1,8 @@
 // Ways to declare a variable
 // `var`, `let`, & `const`
 
-let firstName = 'John';
-const lastName = 'Doe';
+let firstName = 'David';
+const lastName = 'Muthama';
 let age = 30;
 
 console.log(age);
@@ -43,10 +43,10 @@ arr.push(5);
 console.log(arr);
 
 const person = {
-  name: 'Brad',
+  name: 'Muthama',
 };
-person.name = 'John';
-person.email = 'brad@gmail.com';
+person.name = 'David';
+person.email = 'example@gmail.com';
 console.log(person);
 
 // Declare multiple values at once
